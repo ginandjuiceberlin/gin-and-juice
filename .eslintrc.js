@@ -35,8 +35,10 @@ module.exports = {
     // interface start with capital I
     "@typescript-eslint/interface-name-prefix": "off",
     // allow "any" as type
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "error",
     // allow @ts-ignore for testing purposes
     "@typescript-eslint/ban-ts-ignore": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
   },
 };
