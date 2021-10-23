@@ -1,20 +1,19 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { Box, useTheme } from "@mui/system"
-import { styled } from "@mui/material/styles"
+import * as React from "react";
+import { Link } from "gatsby";
+import { Box } from "@mui/system";
+import { styled } from "@mui/material/styles";
 
 type HeaderProps = {
-  siteTitle: string
-}
+  siteTitle: string;
+};
 
 const MyThemeComponent = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   padding: theme.spacing(12),
   borderRadius: theme.shape.borderRadius,
-}))
+}));
 
 const Header = ({ siteTitle }: HeaderProps) => {
-  const theme = useTheme()
   return (
     <MyThemeComponent>
       <Box sx={{ p: 2, bgcolor: "red" }}>
@@ -41,7 +40,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
         </header>
       </Box>
     </MyThemeComponent>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
