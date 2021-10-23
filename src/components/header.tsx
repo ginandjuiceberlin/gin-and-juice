@@ -15,7 +15,6 @@ const MyThemeComponent = styled("div")(({ theme }) => ({
 
 const Header = ({ siteTitle }: HeaderProps) => {
   const theme = useTheme()
-  theme
   return (
     <MyThemeComponent>
       <Box sx={{ p: 2, bgcolor: "red" }}>
