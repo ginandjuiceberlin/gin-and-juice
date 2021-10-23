@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { ThemeProvider } from "@mui/system"
+import * as React from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { ThemeProvider } from "@mui/system";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import theme from "../theme/AppTheme"
-import Header from "../components/header"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import theme from "../theme/AppTheme";
+import Header from "../components/header";
 
 const IndexPage = () => (
   <Layout>
@@ -26,10 +26,10 @@ const IndexPage = () => (
       />
       <p>
         <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+        <Link to="/using-typescript/">Go to &quot;Using TypeScript&quot;</Link>
       </p>
     </ThemeProvider>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

@@ -34,13 +34,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-eslint",
       options: {
-        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
+        extensions: ["js", "jsx", "ts", "tsx"],
+        exclude: ["node_modules", ".cache", "public"],
         stages: ["develop"],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
+        emitWarning: true,
+        failOnError: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
