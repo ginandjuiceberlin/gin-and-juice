@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { Box } from "@mui/system";
 import { styled } from "@mui/material/styles";
 
-type HeaderProps = {
+export type HeaderProps = {
   siteTitle: string;
 };
 

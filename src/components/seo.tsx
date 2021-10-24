@@ -7,7 +7,17 @@
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const Seo = ({ description = "", lang = "en", meta = [], title }) => {
+type SeoProps = {
+  description?: string;
+  lang?: string;
+  meta?: ConcatArray<
+    | { name: string; content: unknown; property?: undefined }
+    | { property: string; content: unknown; name?: undefined }
+  >;
+  title: string;
+};
+
+const Seo = ({ description = "", lang = "en", meta = [], title }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {

@@ -34,7 +34,6 @@ module.exports = {
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     // interface start with capital I
     "@typescript-eslint/interface-name-prefix": "off",
-    // allow "any" as type
     "@typescript-eslint/no-explicit-any": "error",
     // allow @ts-ignore for testing purposes
     "@typescript-eslint/ban-ts-ignore": "off",
