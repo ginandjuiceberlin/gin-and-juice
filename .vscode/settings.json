@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "root",
-        "eslint"
+        "eslint",
+        "package.json"
     ]
 }
