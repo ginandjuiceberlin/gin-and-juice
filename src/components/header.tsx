@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { Box } from "@mui/system";
 import { styled } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 
 export type HeaderProps = {
   siteTitle: string;
@@ -24,7 +25,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
               padding: `1.45rem 1.0875rem`,
             }}
           >
-            <h1 style={{ margin: 0 }}>
+            <Typography variant="h1" style={{ margin: 0 }}>
               <Link
                 to="/"
                 style={{
@@ -34,7 +35,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
               >
                 {siteTitle}
               </Link>
-            </h1>
+            </Typography>
           </div>
         </header>
       </Box>
