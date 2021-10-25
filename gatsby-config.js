@@ -31,8 +31,29 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-eslint",
+      options: {
+        extensions: ["js", "jsx", "ts", "tsx"],
+        exclude: ["node_modules", ".cache", "public"],
+        stages: ["develop"],
+        emitWarning: true,
+        failOnError: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Varela Round`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-theme-material-ui`,
+    `gatsby-plugin-layout`,
   ],
-}
+};
