@@ -1,5 +1,9 @@
-import theme from "../src/theme/AppTheme"
-import { ThemeProvider } from "@mui/system"
+import theme from "../src/theme/AppTheme";
+import {
+  ThemeProvider as MUIThemeProvider,
+  createTheme,
+} from "@mui/material/styles";
+import { ThemeProvider } from "emotion-theming";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -9,14 +13,16 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
 
-const withMuiTheme = Story => {
+const withMuiTheme = (Story) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Story />
-    </ThemeProvider>
-  )
-}
+    <MUIThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Story />
+      </ThemeProvider>
+    </MUIThemeProvider>
+  );
+};
 
-export const decorators = [withMuiTheme]
+export const decorators = [withMuiTheme];

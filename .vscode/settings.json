@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "root",
         "eslint",
-        "package.json"
+        "package.json",
+        "storybook"
     ]
 }
