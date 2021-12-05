@@ -1,0 +1,39 @@
+.root {
+  background: #f071aa;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-width: 320px;
+}
+
+.root p{
+    text-align: center;
+}
+
+.label {
+  color: black;
+}
+
+.input {
+    outline: none;
+    border: none;
+    margin-top: 24px;
+    padding:16px;
+    background: black;
+    color: #f071aa;
+}
+
+.submitAction {
+    margin-top: 24px;
+  color: black;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
