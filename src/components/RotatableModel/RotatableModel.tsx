@@ -68,7 +68,7 @@ const RotatableModel = ({ getLoadedPercentage }: RotatableModelProps) => {
   });
 
   return (
-    <Canvas style={{ height: "45vh" }}>
+    <Canvas style={{ height: "75vh", width: "40%" }}>
       <ambientLight />
       <pointLight position={[10, 1, -10]} />
       <Model model={fbxModel} />

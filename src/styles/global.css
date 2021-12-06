@@ -1,7 +1,30 @@
-body{
+@font-face {
+  font-family: "Basic";
+  src: url("/fonts/font.ttf");
+}
+
+body {
   overflow: hidden;
 }
 
-*{
+* {
   box-sizing: border-box;
+  font-family: "Basic";
+  font-weight: 200;
+}
+
+button {
+  font-size: 32px;
+}
+
+p{
+  font-size: 32px;
+}
+
+label{
+  font-size: 32px;
+}
+
+input {
+  font-size: 24px;
 }

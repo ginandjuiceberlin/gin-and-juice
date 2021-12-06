@@ -1,31 +1,32 @@
 .root {
-  background: #f071aa;
+  background: #e88ff8;
   padding: 32px;
   display: flex;
   flex-direction: column;
   align-self: center;
-  max-width: 320px;
+  min-width: fit-content;
 }
 
-.root p{
-    text-align: center;
+.root p {
+  text-align: center;
 }
 
 .label {
   color: black;
+  text-align: center;
 }
 
 .input {
-    outline: none;
-    border: none;
-    margin-top: 24px;
-    padding:16px;
-    background: black;
-    color: #f071aa;
+  outline: none;
+  border: none;
+  margin-top: 24px;
+  padding: 16px;
+  background: black;
+  color: #e88ff8;
 }
 
 .submitAction {
-    margin-top: 24px;
+  margin-top: 24px;
   color: black;
   background: none;
   border: none;
@@ -33,7 +34,7 @@
   cursor: pointer;
 }
 
-.disabled{
-    opacity: 0.5;
-    pointer-events: none;
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }

@@ -16,22 +16,23 @@ const LoadingScreen = (
   { percentage, onStart, style }: LoadingScreenProps,
   ref?: Ref<HTMLDivElement>
 ) => {
-  const loaded = percentage === 100;
+  const loaded = percentage >= 100;
 
   return (
     <div className={root} ref={ref} style={style}>
       <StaticImage
-        src="../../images/gatsby-icon.png"
+        placeholder="none"
+        src="../../images/bblogo.png"
         width={300}
         quality={95}
         alt="Gin N Juice logo"
       />
       {loaded ? (
         <button onClick={onStart} className={startAction}>
-          START
+          Start
         </button>
       ) : (
-        <p className={loadingIndicator}>{percentage}</p>
+        <p className={loadingIndicator}>{percentage}%</p>
       )}
     </div>
   );

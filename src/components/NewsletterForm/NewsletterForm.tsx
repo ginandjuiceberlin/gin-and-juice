@@ -32,7 +32,7 @@ const NewsletterForm = () => {
 
   return (
     <form className={root} onSubmit={submitHandler}>
-      <label className={label}>ENTER EMAIL FOR UPDATES</label>
+      <label className={label}>Enter Email For Updates</label>
       <input
         type="email"
         className={clsx(input, { [disabled]: submitting })}
@@ -43,10 +43,10 @@ const NewsletterForm = () => {
           type="submit"
           className={clsx(submitAction, { [disabled]: submitting })}
         >
-          SUBMIT
+          Submit
         </button>
       )}
-      {submitting && <p>SUBMITTING</p>}
+      {submitting && <p>Submitting</p>}
       {status && <p>{status.message}</p>}
     </form>
   );

@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { gif } from "./gif.module.css";
+
 type GifImageProps = {
   src: string;
   className?: string;
@@ -16,7 +19,7 @@ const Gif = ({ src, href, classes }: GifProps) => {
   if (!href) {
     return (
       <div className={classes?.root}>
-        <GifImage src={src} className={classes?.gif} />
+        <GifImage src={src} className={clsx(gif, classes?.gif)} />
       </div>
     );
   }

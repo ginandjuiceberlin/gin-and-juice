@@ -13,7 +13,7 @@
 
 .loadingIndicator {
   margin-top: 24px;
-  color: #f071aa;
+  color: #e88ff8;
 }
 
 .startAction {
@@ -22,5 +22,5 @@
   background: none;
   outline: none;
   border: none;
-  color: #f071aa;
+  color: #e88ff8;
 }

@@ -7,8 +7,17 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import { animated, useTransition } from "react-spring";
 import BackgroundAudio from "../components/BackgroundAudio/BackgroundAudio";
 import Gif from "../components/Gif/Gif";
-import { topBadges, bottomBadges, gifRoot, gif } from "./index.module.css";
 import NewsletterForm from "../components/NewsletterForm/NewsletterForm";
+import { StaticImage } from "gatsby-plugin-image";
+import {
+  stickersContainer,
+  primaryStickersContainer,
+  mainLogoContainer,
+  logoAndInstagramContainer,
+  secondaryStickersContainer,
+  newsletterContainer,
+  spotifyContainer,
+} from "./index.module.css";
 
 const AnimatedLoadingScreen = animated(LoadingScreen);
 
@@ -36,20 +45,54 @@ const IndexPage = () => {
     leave: { opacity: 0 },
   });
 
+  // this fixes build errors, code below probably accesses window
+  if (typeof window === "undefined") {
+    return null;
+  }
+
   return (
     <>
       <Background ref={videoRef} />
       <BackgroundAudio ref={audioRef} />
       <Seo title="Home" />
       <FullscreenContainer>
-        <div className={topBadges}>
-          <Gif src="/gifs/gif.gif" classes={{ gif, root: gifRoot }} />
-          <Gif src="/gifs/gif.gif" classes={{ gif, root: gifRoot }} />
-          <Gif src="/gifs/gif.gif" classes={{ gif, root: gifRoot }} />
+        <Suspense fallback={null}>
+          <RotatableModel getLoadedPercentage={loadedPercentageHandler} />
+        </Suspense>
+        <div className={stickersContainer}>
+          <div className={primaryStickersContainer}>
+            <div className={mainLogoContainer}>
+              <Gif src="/gifs/gif.gif" />
+            </div>
+            <div className={logoAndInstagramContainer}>
+              <StaticImage
+                imgStyle={{ objectFit: "contain" }}
+                width={400}
+                src="../images/bblogo.png"
+                alt="spotify"
+              />
+              <StaticImage
+                imgStyle={{ objectFit: "contain" }}
+                width={400}
+                src="../images/bandana.png"
+                alt="spotify"
+              />
+            </div>
+          </div>
+          <div className={secondaryStickersContainer}>
+            <div className={newsletterContainer}>
+              <NewsletterForm />
+            </div>
+            <div className={spotifyContainer}>
+              <StaticImage
+                imgStyle={{ objectFit: "contain" }}
+                width={300}
+                src="../images/spotify.png"
+                alt="spotify"
+              />
+            </div>
+          </div>
         </div>
-        {/* <Suspense fallback={null}> */}
-        <RotatableModel getLoadedPercentage={loadedPercentageHandler} />
-        {/* </Suspense> */}
         {transitions(
           (props, item) =>
             item && (
@@ -60,11 +103,6 @@ const IndexPage = () => {
               />
             )
         )}
-        <div className={bottomBadges}>
-          <Gif src="/gifs/gif.gif" classes={{ gif, root: gifRoot }} />
-          <NewsletterForm />
-          <Gif src="/gifs/gif.gif" classes={{ gif, root: gifRoot }} />
-        </div>
       </FullscreenContainer>
       {/* <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
