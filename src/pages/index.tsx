@@ -27,10 +27,10 @@ const IndexPage = () => {
 
   const [startedExperience, setStartedExperience] = useState(false);
 
-  const [loadedPercentage, setLoadedPercentage] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const loadedPercentageHandler = useCallback((percentage) => {
-    setLoadedPercentage(percentage);
+  const isLoadedHandler = useCallback((loaded) => {
+    setIsLoaded(loaded);
   }, []);
 
   const handleStart = useCallback(() => {
@@ -57,7 +57,7 @@ const IndexPage = () => {
       <Seo title="Home" />
       <FullscreenContainer>
         <Suspense fallback={null}>
-          <RotatableModel getLoadedPercentage={loadedPercentageHandler} />
+          <RotatableModel getIsLoaded={isLoadedHandler} />
         </Suspense>
         <div className={stickersContainer}>
           <div className={primaryStickersContainer}>
@@ -97,7 +97,7 @@ const IndexPage = () => {
           (props, item) =>
             item && (
               <AnimatedLoadingScreen
-                percentage={loadedPercentage}
+                loaded={isLoaded}
                 onStart={handleStart}
                 style={props}
               />

@@ -5,6 +5,7 @@ import { useMouse } from "rooks";
 import { Leva, useControls } from "leva";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useSpring } from "@react-spring/core";
+import { Group } from "three";
 
 type ModelProps = {
   model: THREE.Group;
@@ -59,19 +60,30 @@ function Model({ model }: ModelProps) {
 }
 
 type RotatableModelProps = {
-  getLoadedPercentage: (percentage: number) => void;
+  getIsLoaded: (loaded: boolean) => void;
 };
 
-const RotatableModel = ({ getLoadedPercentage }: RotatableModelProps) => {
-  const fbxModel = useLoader(FBXLoader, "/models/model.fbx", null, (event) => {
-    getLoadedPercentage(Math.round((event.loaded / event.total) * 100));
-  });
+const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
+  // const fbxModel = useLoader(FBXLoader, "/models/model.fbx", null, (event) => {
+  //   getLoadedPercentage(Math.round((event.loaded / event.total) * 100));
+  // });
+
+  const [fbxModel, setFbxModel] = useState<Group | undefined>();
+  useEffect(() => {
+    new FBXLoader().load("/models/model.fbx", setFbxModel);
+  }, []);
+
+  useEffect(() => {
+    if (fbxModel) {
+      getIsLoaded(true);
+    }
+  }, [fbxModel]);
 
   return (
     <Canvas style={{ height: "75vh", width: "40%" }}>
       <ambientLight />
       <pointLight position={[10, 1, -10]} />
-      <Model model={fbxModel} />
+      {fbxModel && <Model model={fbxModel} />}
     </Canvas>
   );
 };
