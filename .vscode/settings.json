@@ -4,6 +4,7 @@
         "eslint",
         "package.json",
         "storybook",
-        "index"
+        "index",
+        "NewsletterForm"
     ]
 }

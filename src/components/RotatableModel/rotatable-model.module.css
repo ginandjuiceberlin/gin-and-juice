@@ -5,13 +5,13 @@
 
 @media screen and (min-width: 768px) {
     .canvas {
-      width: 40%;
+      width: 35%;
     }
   }
 
 @media screen and (min-width: 1024px) {
     .canvas {
-      width: 50%;
+      width: 46%;
     }
   }
 

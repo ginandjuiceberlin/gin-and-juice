@@ -7,6 +7,7 @@ import {
   submitAction,
   disabled,
 } from "./newsletter-form.module.css";
+import addToMailchimp from "gatsby-plugin-mailchimp";
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");
@@ -16,9 +17,25 @@ const NewsletterForm = () => {
   >();
 
   const submitHandler = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
-      //TODO: implement mailchimp
+      setStatus(undefined);
+      setSubmitting(true);
+      try {
+        const mailchimpResponse = await addToMailchimp(email, {}, undefined);
+
+        setStatus({
+          type: mailchimpResponse.result,
+          message: mailchimpResponse.msg,
+        });
+        setSubmitting(false);
+      } catch (e) {
+        setStatus({
+          type: "error",
+          message: "There was some error, try again later!",
+        });
+        setSubmitting(false);
+      }
     },
     [email]
   );
@@ -32,19 +49,23 @@ const NewsletterForm = () => {
 
   return (
     <form className={root} onSubmit={submitHandler}>
-      <label className={label}>Enter Email For Updates</label>
-      <input
-        type="email"
-        className={clsx(input, { [disabled]: submitting })}
-        onChange={handleInput}
-      />
-      {!submitting && (
-        <button
-          type="submit"
-          className={clsx(submitAction, { [disabled]: submitting })}
-        >
-          Submit
-        </button>
+      {!status && (
+        <>
+          <label className={label}>Enter Email For Updates</label>
+          <input
+            type="email"
+            className={clsx(input, { [disabled]: submitting })}
+            onChange={handleInput}
+          />
+          {!submitting && (
+            <button
+              type="submit"
+              className={clsx(submitAction, { [disabled]: submitting })}
+            >
+              Submit
+            </button>
+          )}
+        </>
       )}
       {submitting && <p>Submitting</p>}
       {status && <p>{status.message}</p>}

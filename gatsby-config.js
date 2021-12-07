@@ -33,6 +33,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        // TODO: add endpoint
+        endpoint:
+          "changemechangemechangemechangemechangemechangemechangeme.com", // string; add your MC list endpoint here; see instructions below
+      },
+    },
+    {
       resolve: "gatsby-plugin-eslint",
       options: {
         extensions: ["js", "jsx", "ts", "tsx"],

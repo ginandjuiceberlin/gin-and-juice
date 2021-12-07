@@ -19,7 +19,7 @@
   display: contents;
 }
 
-.logo{
+.logo {
   max-height: 100%;
 }
 
@@ -49,13 +49,13 @@
 
 @media screen and (min-width: 768px) {
   .stickersContainer {
-    width: 60%;
+    width: 65%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .stickersContainer {
-    width: 50%;
+    width: 54%;
   }
 }
 
