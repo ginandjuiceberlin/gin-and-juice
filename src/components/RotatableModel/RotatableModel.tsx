@@ -1,11 +1,12 @@
 import * as THREE from "three";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import React, { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useMouse } from "rooks";
 import { Leva, useControls } from "leva";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useSpring } from "@react-spring/core";
 import { Group } from "three";
+import { canvas } from "./rotatable-model.module.css";
 
 type ModelProps = {
   model: THREE.Group;
@@ -52,7 +53,7 @@ function Model({ model }: ModelProps) {
       <Leva
         hidden // default = false, when true the GUI is hidden
       />
-      <group ref={ref} position={[meshX, meshY, meshZ]} scale={0.007}>
+      <group ref={ref} position={[meshX, meshY, meshZ]} scale={1.2}>
         <primitive object={model} />
       </group>
     </>
@@ -64,10 +65,6 @@ type RotatableModelProps = {
 };
 
 const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
-  // const fbxModel = useLoader(FBXLoader, "/models/model.fbx", null, (event) => {
-  //   getLoadedPercentage(Math.round((event.loaded / event.total) * 100));
-  // });
-
   const [fbxModel, setFbxModel] = useState<Group | undefined>();
   useEffect(() => {
     new FBXLoader().load("/models/model.fbx", setFbxModel);
@@ -80,11 +77,13 @@ const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
   }, [fbxModel]);
 
   return (
-    <Canvas style={{ height: "75vh", width: "40%" }}>
-      <ambientLight />
-      <pointLight position={[10, 1, -10]} />
-      {fbxModel && <Model model={fbxModel} />}
-    </Canvas>
+    <div className={canvas}>
+      <Canvas>
+        <ambientLight />
+        <pointLight position={[0, 4, -20]} />
+        {fbxModel && <Model model={fbxModel} />}
+      </Canvas>
+    </div>
   );
 };
 

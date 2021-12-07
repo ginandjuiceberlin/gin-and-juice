@@ -1,5 +1,4 @@
 .stickersContainer {
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,16 +7,26 @@
 .primaryStickersContainer {
   display: flex;
   justify-content: space-between;
+  max-height: 45vh;
 }
 
 .mainLogoContainer {
-  width: 60%;
+  width: 50%;
+}
+
+.logoRoot {
+  max-height: 100%;
+  display: contents;
+}
+
+.logo{
+  max-height: 100%;
 }
 
 .logoAndInstagramContainer {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 40%;
   justify-content: space-between;
 }
 
@@ -36,4 +45,28 @@
   width: 40%;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .stickersContainer {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stickersContainer {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .stickersContainer {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .stickersContainer {
+    width: 50%;
+  }
 }

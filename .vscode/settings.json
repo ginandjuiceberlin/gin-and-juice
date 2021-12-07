@@ -3,6 +3,7 @@
         "root",
         "eslint",
         "package.json",
-        "storybook"
+        "storybook",
+        "index"
     ]
 }

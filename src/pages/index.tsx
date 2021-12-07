@@ -17,6 +17,8 @@ import {
   secondaryStickersContainer,
   newsletterContainer,
   spotifyContainer,
+  logoRoot,
+  logo,
 } from "./index.module.css";
 
 const AnimatedLoadingScreen = animated(LoadingScreen);
@@ -62,7 +64,10 @@ const IndexPage = () => {
         <div className={stickersContainer}>
           <div className={primaryStickersContainer}>
             <div className={mainLogoContainer}>
-              <Gif src="/gifs/gif.gif" />
+              <Gif
+                src="/gifs/gif.gif"
+                classes={{ root: logoRoot, gif: logo }}
+              />
             </div>
             <div className={logoAndInstagramContainer}>
               <StaticImage
