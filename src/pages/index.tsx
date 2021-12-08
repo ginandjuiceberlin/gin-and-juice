@@ -65,7 +65,7 @@ const IndexPage = () => {
           <div className={primaryStickersContainer}>
             <div className={mainLogoContainer}>
               <Gif
-                src="/gifs/gif.gif"
+                src="/gifs/ginjuicelogo.gif"
                 classes={{ root: logoRoot, gif: logo }}
               />
             </div>
