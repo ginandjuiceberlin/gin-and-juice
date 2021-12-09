@@ -70,18 +70,26 @@ const IndexPage = () => {
               />
             </div>
             <div className={logoAndInstagramContainer}>
-              <StaticImage
-                imgStyle={{ objectFit: "contain" }}
-                width={400}
-                src="../images/bblogo.png"
-                alt="spotify"
-              />
-              <StaticImage
-                imgStyle={{ objectFit: "contain" }}
-                width={400}
-                src="../images/bandana.png"
-                alt="spotify"
-              />
+              <a href="http://bodega.berlin" target="_blank" rel="noreferrer">
+                <StaticImage
+                  imgStyle={{ objectFit: "contain" }}
+                  width={400}
+                  src="../images/bblogo.png"
+                  alt="spotify"
+                />
+              </a>
+              <a
+                href="http://instagram.com/ginandjuice.berlin"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <StaticImage
+                  imgStyle={{ objectFit: "contain" }}
+                  width={400}
+                  src="../images/bandana.png"
+                  alt="spotify"
+                />
+              </a>
             </div>
           </div>
           <div className={secondaryStickersContainer}>
@@ -89,12 +97,18 @@ const IndexPage = () => {
               <NewsletterForm />
             </div>
             <div className={spotifyContainer}>
-              <StaticImage
-                imgStyle={{ objectFit: "contain" }}
-                width={300}
-                src="../images/spotify.png"
-                alt="spotify"
-              />
+              <a
+                href="https://open.spotify.com/playlist/3Fycw2N8Ao1COwSeOKzWhb"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <StaticImage
+                  imgStyle={{ objectFit: "contain" }}
+                  width={300}
+                  src="../images/spotify.png"
+                  alt="spotify"
+                />
+              </a>
             </div>
           </div>
         </div>

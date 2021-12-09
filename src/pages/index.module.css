@@ -30,6 +30,10 @@
   justify-content: space-between;
 }
 
+.logoAndInstagramContainer > a {
+  display: contents;
+}
+
 .secondaryStickersContainer {
   display: flex;
   justify-content: space-between;
@@ -45,6 +49,10 @@
   width: 40%;
   display: flex;
   justify-content: center;
+}
+
+.spotifyContainer > a {
+  display: contents;
 }
 
 @media screen and (min-width: 768px) {

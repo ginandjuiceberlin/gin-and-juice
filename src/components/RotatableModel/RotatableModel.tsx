@@ -67,7 +67,32 @@ type RotatableModelProps = {
 const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
   const [fbxModel, setFbxModel] = useState<Group | undefined>();
   useEffect(() => {
-    new FBXLoader().load("/models/model.fbx", setFbxModel);
+    new FBXLoader().load("/models/model.fbx", (model) => {
+      model.traverse((child) => {
+        const modelChild = child as THREE.Mesh;
+        if (modelChild.isMesh) {
+          if (modelChild.name === "Kappe") {
+            modelChild.material = new THREE.MeshStandardMaterial({
+              color: "black",
+            });
+          }
+          if (modelChild.name === "fluid") {
+            modelChild.material = new THREE.MeshStandardMaterial({
+              color: 0xa349a4,
+            });
+          }
+          if (modelChild.name === "Körper") {
+            modelChild.material = new THREE.MeshStandardMaterial({
+              color: "rgb(128, 57, 128)",
+              opacity: 0.5,
+              transparent: true,
+            });
+          }
+        }
+      });
+
+      setFbxModel(model);
+    });
   }, []);
 
   useEffect(() => {
@@ -79,8 +104,8 @@ const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
   return (
     <div className={canvas}>
       <Canvas>
-        <ambientLight />
-        <pointLight position={[0, 4, -20]} />
+        <ambientLight intensity={0.35} />
+        <pointLight position={[0, 14, -10]} />
         {fbxModel && <Model model={fbxModel} />}
       </Canvas>
     </div>
