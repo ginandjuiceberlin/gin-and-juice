@@ -8,3 +8,6 @@ export const logoAndInstagramContainer: string;
 export const secondaryStickersContainer: string;
 export const newsletterContainer: string;
 export const spotifyContainer: string;
+export const mobileTopLinks: string;
+export const mobileLogoContainer: string;
+export const mobileInstagramContainer: string;

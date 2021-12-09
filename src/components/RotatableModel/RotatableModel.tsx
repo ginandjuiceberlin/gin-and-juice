@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMouse } from "rooks";
+import { useMediaMatch, useMouse } from "rooks";
 import { Leva, useControls } from "leva";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useSpring } from "@react-spring/core";
@@ -14,6 +14,7 @@ type ModelProps = {
 
 function Model({ model }: ModelProps) {
   const ref = useRef<THREE.Mesh>();
+  const isMobile = useMediaMatch("(max-width: 768px)");
 
   const { clientX, clientY } = useMouse();
 
@@ -37,14 +38,17 @@ function Model({ model }: ModelProps) {
     [clientX, clientY]
   );
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     const normalizedMouseX =
       (2 * y?.get() - window.innerHeight) / window.innerHeight;
     const normalizedMouseY =
       (2 * x?.get() - window.innerWidth) / window.innerWidth;
-    if (typeof ref.current !== "undefined") {
+    if (typeof ref.current !== "undefined" && !isMobile) {
       ref.current.rotation.x = rotateX * Math.PI * normalizedMouseX;
       ref.current.rotation.y = rotateY * Math.PI * normalizedMouseY;
+    }
+    if (isMobile) {
+      ref.current.rotation.y += delta * rotateY;
     }
   });
 
@@ -53,7 +57,11 @@ function Model({ model }: ModelProps) {
       <Leva
         hidden // default = false, when true the GUI is hidden
       />
-      <group ref={ref} position={[meshX, meshY, meshZ]} scale={1.2}>
+      <group
+        ref={ref}
+        position={[meshX, meshY, meshZ]}
+        scale={isMobile ? 1.5 : 1.2}
+      >
         <primitive object={model} />
       </group>
     </>

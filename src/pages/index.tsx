@@ -19,6 +19,9 @@ import {
   spotifyContainer,
   logoRoot,
   logo,
+  mobileTopLinks,
+  mobileLogoContainer,
+  mobileInstagramContainer,
 } from "./index.module.css";
 
 const AnimatedLoadingScreen = animated(LoadingScreen);
@@ -58,6 +61,38 @@ const IndexPage = () => {
       <BackgroundAudio ref={audioRef} />
       <Seo title="Home" />
       <FullscreenContainer>
+        <div className={mobileTopLinks}>
+          <div className={mobileLogoContainer}>
+            <a href="http://bodega.berlin" target="_blank" rel="noreferrer">
+              <StaticImage
+                imgStyle={{ objectFit: "contain" }}
+                width={400}
+                src="../images/bblogo.png"
+                alt="spotify"
+              />
+            </a>
+          </div>
+          <div className={mainLogoContainer}>
+            <Gif
+              src="/gifs/ginjuicelogo.gif"
+              classes={{ root: logoRoot, gif: logo }}
+            />
+          </div>
+          <div className={mobileInstagramContainer}>
+            <a
+              href="http://instagram.com/ginandjuice.berlin"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <StaticImage
+                imgStyle={{ objectFit: "contain" }}
+                width={400}
+                src="../images/bandana.png"
+                alt="spotify"
+              />
+            </a>
+          </div>
+        </div>
         <Suspense fallback={null}>
           <RotatableModel getIsLoaded={isLoadedHandler} />
         </Suspense>
@@ -123,10 +158,6 @@ const IndexPage = () => {
             )
         )}
       </FullscreenContainer>
-      {/* <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to &quot;Using TypeScript&quot;</Link>
-    </p> */}
     </>
   );
 };

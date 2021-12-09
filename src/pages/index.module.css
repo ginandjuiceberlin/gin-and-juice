@@ -1,17 +1,16 @@
 .stickersContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .primaryStickersContainer {
-  display: flex;
-  justify-content: space-between;
-  max-height: 45vh;
+  display: none;
 }
 
 .mainLogoContainer {
-  width: 50%;
+  width: 33%;
 }
 
 .logoRoot {
@@ -23,13 +22,6 @@
   max-height: 100%;
 }
 
-.logoAndInstagramContainer {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  justify-content: space-between;
-}
-
 .logoAndInstagramContainer > a {
   display: contents;
 }
@@ -38,15 +30,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 64px;
+  flex-direction: column;
 }
 
 .newsletterContainer {
-  width: 50%;
+  width: 100%;
 }
 
 .spotifyContainer {
-  width: 40%;
+  width: 25%;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
 }
@@ -55,9 +48,52 @@
   display: contents;
 }
 
+.mobileTopLinks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobileLogoContainer {
+  display: flex;
+  width: 25%;
+}
+
+.mobileInstagramContainer {
+  display: flex;
+  width: 25%;
+}
+
 @media screen and (min-width: 768px) {
+  .spotifyContainer{
+    margin-top: 0;
+    width: 40%;
+  }
+  .mainLogoContainer {
+    width: 50%;
+  }
+  .newsletterContainer {
+    width: 50%;
+  }
+  .secondaryStickersContainer {
+    flex-direction: row;
+    margin-top: 16px;
+  }
   .stickersContainer {
     width: 65%;
+  }
+  .primaryStickersContainer {
+    display: flex;
+    justify-content: space-between;
+    max-height: 45vh;
+  }
+  .logoAndInstagramContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-between;
+  }
+  .mobileTopLinks {
+    display: none;
   }
 }
 
@@ -65,16 +101,25 @@
   .stickersContainer {
     width: 54%;
   }
+  .secondaryStickersContainer {
+    margin-top: 24px;
+  }
 }
 
 @media screen and (min-width: 1366px) {
   .stickersContainer {
     width: 45%;
   }
+  .secondaryStickersContainer {
+    margin-top: 32px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
   .stickersContainer {
     width: 50%;
+  }
+  .secondaryStickersContainer {
+    margin-top: 48px;
   }
 }

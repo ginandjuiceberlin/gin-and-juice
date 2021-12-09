@@ -2,8 +2,14 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
   height: 100vh;
-  padding: 32px;
+  padding: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    align-items: center;
+    padding: 32px;
+  }
 }
