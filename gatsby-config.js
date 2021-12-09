@@ -35,9 +35,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
-        // TODO: add endpoint
         endpoint:
-          "changemechangemechangemechangemechangemechangemechangeme.com", // string; add your MC list endpoint here; see instructions below
+          "https://berlin.us20.list-manage.com/subscribe/post?u=140704e0a9ceac53536aaa38d&amp;id=c03a246258", // string; add your MC list endpoint here; see instructions below
       },
     },
     {

@@ -68,7 +68,7 @@ const NewsletterForm = () => {
         </>
       )}
       {submitting && <p>Submitting</p>}
-      {status && <p>{status.message}</p>}
+      {status && <p dangerouslySetInnerHTML={{ __html: status.message }}></p>}
     </form>
   );
 };
