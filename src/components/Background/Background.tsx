@@ -4,7 +4,15 @@ import { root, video } from "./background.module.css";
 const Background = (_, ref?: Ref<HTMLVideoElement>) => {
   return (
     <div className={root}>
-      <video ref={ref} className={video} preload="auto" loop muted>
+      <video
+        ref={ref}
+        className={video}
+        preload="auto"
+        loop
+        muted
+        playsInline
+        disablePictureInPicture
+      >
         <source src={"/videos/video.mp4"} type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
