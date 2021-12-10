@@ -6,6 +6,7 @@
         "storybook",
         "index",
         "NewsletterForm",
-        "Background"
+        "Background",
+        "FullscreenContainer"
     ]
 }

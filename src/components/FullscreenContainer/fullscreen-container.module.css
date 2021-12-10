@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   height: 100vh;
+  min-height:-webkit-fill-available;
   padding: 16px;
 }
 
