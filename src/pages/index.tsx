@@ -22,6 +22,7 @@ import {
   mobileTopLinks,
   mobileLogoContainer,
   mobileInstagramContainer,
+  mobileSpotifyContainer,
 } from "./index.module.css";
 
 const AnimatedLoadingScreen = animated(LoadingScreen);
@@ -62,12 +63,16 @@ const IndexPage = () => {
       <Seo title="Home" />
       <FullscreenContainer>
         <div className={mobileTopLinks}>
-          <div className={mobileLogoContainer}>
-            <a href="http://bodega.berlin" target="_blank" rel="noreferrer">
+          <div className={mobileSpotifyContainer}>
+            <a
+              href="https://open.spotify.com/playlist/3Fycw2N8Ao1COwSeOKzWhb"
+              target="_blank"
+              rel="noreferrer"
+            >
               <StaticImage
                 imgStyle={{ objectFit: "contain" }}
-                width={400}
-                src="../images/bblogo.png"
+                width={300}
+                src="../images/spotify.png"
                 alt="spotify"
               />
             </a>
@@ -141,6 +146,16 @@ const IndexPage = () => {
                   imgStyle={{ objectFit: "contain" }}
                   width={300}
                   src="../images/spotify.png"
+                  alt="spotify"
+                />
+              </a>
+            </div>
+            <div className={mobileLogoContainer}>
+              <a href="http://bodega.berlin" target="_blank" rel="noreferrer">
+                <StaticImage
+                  imgStyle={{ objectFit: "contain" }}
+                  width={400}
+                  src="../images/bblogo.png"
                   alt="spotify"
                 />
               </a>

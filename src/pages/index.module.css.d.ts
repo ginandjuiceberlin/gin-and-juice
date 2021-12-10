@@ -10,4 +10,5 @@ export const newsletterContainer: string;
 export const spotifyContainer: string;
 export const mobileTopLinks: string;
 export const mobileLogoContainer: string;
+export const mobileSpotifyContainer: string;
 export const mobileInstagramContainer: string;

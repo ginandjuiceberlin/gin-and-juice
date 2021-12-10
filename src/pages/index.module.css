@@ -38,10 +38,7 @@
 }
 
 .spotifyContainer {
-  width: 25%;
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
+  display: none;
 }
 
 .spotifyContainer > a {
@@ -56,6 +53,12 @@
 .mobileLogoContainer {
   display: flex;
   width: 25%;
+  margin-top: 16px;
+}
+
+.mobileSpotifyContainer {
+  display: flex;
+  width: 25%;
 }
 
 .mobileInstagramContainer {
@@ -64,9 +67,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .spotifyContainer{
+  .spotifyContainer {
     margin-top: 0;
     width: 40%;
+    display: flex;
+    justify-content: center;
   }
   .mainLogoContainer {
     width: 50%;
@@ -93,6 +98,12 @@
     justify-content: space-between;
   }
   .mobileTopLinks {
+    display: none;
+  }
+  .mobileSpotifyContainer {
+    display: none;
+  }
+  .mobileLogoContainer{
     display: none;
   }
 }
