@@ -7,6 +7,7 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useSpring } from "@react-spring/core";
 import { Group } from "three";
 import { canvas } from "./rotatable-model.module.css";
+import { ResizeObserver } from "@juggle/resize-observer";
 
 type ModelProps = {
   model: THREE.Group;
@@ -14,7 +15,7 @@ type ModelProps = {
 
 function Model({ model }: ModelProps) {
   const ref = useRef<THREE.Mesh>();
-  const isMobile = useMediaMatch("(max-width: 768px)");
+  const isMobile = useMediaMatch("(max-width: 767px)");
 
   const { clientX, clientY } = useMouse();
 
@@ -111,7 +112,7 @@ const RotatableModel = ({ getIsLoaded }: RotatableModelProps) => {
 
   return (
     <div className={canvas}>
-      <Canvas>
+      <Canvas resize={{ polyfill: ResizeObserver }}>
         <ambientLight intensity={0.35} />
         <pointLight position={[0, 14, -10]} />
         {fbxModel && <Model model={fbxModel} />}

@@ -7,6 +7,7 @@
         "index",
         "NewsletterForm",
         "Background",
-        "FullscreenContainer"
+        "FullscreenContainer",
+        "RotatableModel"
     ]
 }
